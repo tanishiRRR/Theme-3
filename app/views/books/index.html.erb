@@ -5,7 +5,7 @@
       <%= f.text_field :title %>
     <p>Opinion</p>
       <%= f.text_area :body %>
-    <%= f.submit 'Create Book' %>
+    <br><%= f.submit 'Create Book' %>
   <% end %>
 </div>
 
@@ -21,15 +21,15 @@
     </thead>
     <tbody>
       <% @books.each do |book| %>
-      <tr>
-        <td><%= image_tag 'default-image' %></td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-            <%= book.title %>
-          <% end %>
-        </td>
-        <td><%= book.body %></td>
-      </tr>
+        <tr>
+          <td><%= image_tag 'no_image' %></td>
+          <td>
+            <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
+          <td><%= book.body %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

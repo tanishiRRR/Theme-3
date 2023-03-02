@@ -25,7 +25,9 @@
               <li class="nav-item">
                 <%= link_to "Home", root_path, class: 'nav-link text-dark' %>
               </li>
-
+              <li>
+                <%= link_to 'Users', user_path(current_user.id) %>
+              </li>
               <li>
                 <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
               </li>
