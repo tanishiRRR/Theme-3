@@ -1,0 +1,35 @@
+<!--ユーザーの詳細-->
+<div>
+  <h2>User info</h2>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <table>
+    <tr>
+      <td><strong>name</strong></td>
+      <td><strong><%= @user.name %></strong></td>
+    </tr>
+    <tr>
+      <td><strong>introduction</strong></td>
+      <td><strong><%= @user.introduction %></strong></td>
+    </tr>
+  </table>
+</div>
+
+<!--プロフィール編集-->
+<div>
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+</div>
+
+<!--投稿フォーム-->
+<div>
+  <h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+    <p>Title</p>
+      <%= f.text_field :title %>
+    <p>Opinion</p>
+      <%= f.text_area :body %>
+    <br><%= f.submit 'Create Book' %>
+  <% end %>
+</div>
+
