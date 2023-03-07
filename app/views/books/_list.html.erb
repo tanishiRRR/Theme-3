@@ -1,8 +1,8 @@
 <!--ユーザーの詳細-->
 <div>
-  <h2>User info</h2>
+  <h2>User info</h2><br>
   <%= image_tag user.get_profile_image(100,100) %>
-  <table>
+  <table class="table">
     <tr>
       <td><strong>name</strong></td>
       <td><strong><%= user.name %></strong></td>
@@ -15,21 +15,28 @@
 </div>
 
 <!--プロフィール編集-->
-<div>
-  <% if user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
-  <% end %>
+<div class="row">
+  <div class="mx-auto">
+    <% if user == current_user %>
+      <p><%= link_to "プロフィール編集", edit_user_path(user) %></p>
+    <% end %>
+  </div>
 </div>
 
 <!--投稿フォーム-->
 <div>
   <h2>New book</h2>
   <%= form_with model: book do |f| %>
-    <p>Title</p>
-      <%= f.text_field :title %>
-    <p>Opinion</p>
-      <%= f.text_area :body %>
-    <br><%= f.submit 'Create Book' %>
+    <div class="form-group">
+      <p>Title</p>
+        <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <p>Opinion</p>
+        <%= f.text_area :body %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Create Book' %>
+    </div>
   <% end %>
 </div>
-

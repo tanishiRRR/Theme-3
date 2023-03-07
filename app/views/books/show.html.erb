@@ -1,19 +1,25 @@
-<%= render 'list', book: @book, user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'list', book: @book, user: @user %>
+    </div>
 
 <!--投稿の詳細-->
-<div>
-  <h2>Book detail</h2>
-  <table>
-    <tbody>
-      <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      <td>
-        <% if @book.user == current_user %>
-          <%= link_to "Destroy", book_path(@book), method: :delete %>
-        <% end %>
-      </td>
-    </tbody>
-  </table>
-  <p><%= @book.user.name %></p>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table>
+        <tbody>
+          <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <td>
+            <% if @book.user == current_user %>
+              <%= link_to "Destroy", book_path(@book), method: :delete %>
+            <% end %>
+          </td>
+        </tbody>
+      </table>
+      <p><%= @book.user.name %></p>
+    </div>
+  </div>
 </div>
