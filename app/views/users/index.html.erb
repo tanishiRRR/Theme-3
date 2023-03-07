@@ -1,30 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'list', book: @booknew, user: current_user %>
+      <%= render 'books/list', book: @book, user: current_user %>
     </div>
 
-    <!--全投稿一覧-->
+    <!--全User一覧-->
     <div class="col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2>Users</h2>
       <table class="table table-hover">
         <thead>
           <tr>
+            <th>image</th>
+            <th>name</th>
             <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
           </tr>
         </thead>
         <tbody>
-          <% @books.each do |book| %>
+          <% @users.each do |user| %>
             <tr>
-              <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+              <td><%= image_tag user.get_profile_image(100,100) %></td>
+              <td><%= user.name %></td>
               <td>
-                <%= link_to book_path(book.id) do %>
-                  <%= book.title %>
+                <%= link_to user_path(user.id) do %>
+                  Show
                 <% end %>
               </td>
-              <td><%= book.body %></td>
             </tr>
           <% end %>
         </tbody>

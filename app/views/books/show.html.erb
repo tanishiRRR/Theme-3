@@ -1,17 +1,31 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'list', book: @book, user: @user %>
+      <%= render 'list', book: Book.new, user: @user %>
     </div>
 
 <!--投稿の詳細-->
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
-      <table>
+      <table class="table table-hover">
         <tbody>
-          <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
-          <td><%= @book.title %></td>
+          <td>
+            <%= image_tag @book.user.get_profile_image(100,100) %><br>
+            <%= link_to user_path(@user) do %>
+              <%= @book.user.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(@book) do %>
+              <%= @book.title %>
+            <% end %>
+          </td>
           <td><%= @book.body %></td>
+          <td>
+            <% if @book.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@book) %>
+            <% end %>
+          </td>
           <td>
             <% if @book.user == current_user %>
               <%= link_to "Destroy", book_path(@book), method: :delete %>
@@ -19,7 +33,6 @@
           </td>
         </tbody>
       </table>
-      <p><%= @book.user.name %></p>
     </div>
   </div>
 </div>

@@ -1,10 +1,16 @@
-<h2>User info</h2>
-<%= form_with model: @user do |f| %>
-  <label for="inputName">Name</label>
-  </br><%= f.text_field :name, autofocus: true, id:"inputName"%>
-  </br><label for="inputImage">Image</label>
-  </br><%= f.file_field :profile_image, accept: "image/*" %>
-  </br><label for="inputName">Introduction</label>
-  </br><%= f.text_area :introduction, autofocus: true, id:"inputName"%>
-  </br><%= f.submit "Update User" %>
-<% end %>
+ <div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <h2>User info</h2>
+      <%= form_with model: @user do |f| %>
+        <label for="inputName">Name</label>
+        </br><%= f.text_field :name, autofocus: true, id:"inputName"%>
+        </br><label for="inputImage">Image</label>
+        </br><%= f.file_field :profile_image, accept: "image/*" %>
+        </br><label for="inputName">Introduction</label>
+        </br><%= f.text_area :introduction, autofocus: true, id:"inputName"%>
+        </br><%= f.submit "Update User" %>
+      <% end %>
+    </div>
+  </div>
+</div>
