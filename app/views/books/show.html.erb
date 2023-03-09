@@ -1,11 +1,11 @@
 <div class = "container">
-  <%= render 'error', book: @booknew%>
+  <%= render 'error', book: Book.new %>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'list', book: @booknew, user: @user %>
+      <%= render 'list', book: Book.new, user: @user %>
     </div>
 
 <!--投稿の詳細-->
@@ -32,7 +32,7 @@
           </td>
           <td>
             <% if @book.user == current_user %>
-              <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <%= link_to "Destroy", book_path(@book), method: :delete, data: { confirm: '本当に削除しますか？' } %>
             <% end %>
           </td>
         </tbody>

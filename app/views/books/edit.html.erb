@@ -7,10 +7,10 @@
     <div class="mx-auto">
       <h2>Editing Book</h2>
       <%= form_with model: @book do |f| %>
-        <label for="inputName">Title</label>
-        </br><%= f.text_field :title, autofocus: true, id:"inputName"%>
-        </br><label for="inputName">Opinion</label>
-        </br><%= f.text_area :body, autofocus: true, id:"inputName"%>
+        <label for="inputTitle">Title</label>
+        </br><%= f.text_field :title, id:"inputTitle", placeholder: "本のタイトル" %>
+        </br><label for="inputOpinion">Opinion</label>
+        </br><%= f.text_area :body, id:"inputOpinion" %>
         </br><%= f.submit "Update Book" %>
       <% end %>
       <%= link_to book_path(@book.id) do %>

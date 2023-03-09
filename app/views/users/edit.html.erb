@@ -16,12 +16,12 @@
 
       <%= form_with model: @user do |f| %>
         <label for="inputName">Name</label>
-        </br><%= f.text_field :name, autofocus: true, id:"inputName"%>
+        </br><%= f.text_field :name, id:"inputName", placeholder: "名前" %>
         </br><label for="inputImage">Image</label>
-        </br><%= f.file_field :profile_image, accept: "image/*" %>
-        </br><label for="inputName">Introduction</label>
-        </br><%= f.text_area :introduction, autofocus: true, id:"inputName"%>
-        </br><%= f.submit "Update User" %>
+        </br><%= f.file_field :profile_image,id:"inputImage", accept: "image/*" %>
+        </br><label for="inputIntroduction">Introduction</label>
+        </br><%= f.text_area :introduction, id:"inputIntroduction" %>
+        </br><%= f.submit "Update User", placeholder: "自己紹介文" %>
       <% end %>
     </div>
   </div>
