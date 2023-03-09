@@ -1,7 +1,11 @@
+<div class = "container">
+  <%= render 'error', book: @book%>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'list', book: @booknew, user: current_user %>
+      <%= render 'list', book: @book, user: current_user %>
     </div>
 
     <!--全投稿一覧-->
